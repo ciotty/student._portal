@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weekly Schedule</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            transition: 0.3s;
+        }
+
+        body.dark {
+            background: #121212;
+            color: white;
+        }
+
+        body.light {
+            background: #f2f2f2;
+            color: black;
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            width: 230px;
+            height: 100vh;
+            background: #b30000;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 20px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 15px;
+            font-size: 18px;
+            text-decoration: none;
+            color: white;
+            transition: 0.2s;
+        }
+
+        .sidebar a:hover {
+            background: #800000;
+        }
+
+        .content {
+            margin-left: 250px;
+            padding: 40px;
+        }
+
+        header {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* TABLE */
+        table {
+            width: 90%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        th, td {
+            border: 1px solid gray;
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background: #b30000;
+            color: white;
+        }
+
+        body.light th {
+            background: #d00000;
+        }
+
+        /* Bottom buttons */
+        .toggle-mode,
+        .btn-logout {
+            padding: 12px;
+            width: 80%;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            cursor: pointer;
+            margin: 10px auto;
+        }
+
+        .toggle-mode {
+            background: black;
+        }
+
+        body.light .toggle-mode {
+            background: #333;
+        }
+
+        .btn-logout {
+            background: #800000;
+        }
+
+        .btn-logout:hover {
+            background: #000;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="sidebar">
+    <div>
+        <h2 style="text-align:center;">CCS Panel</h2>
+        <a href="dashboard.html">🏠 Dashboard</a>
+        <a href="profile.html">👤 Profile</a>
+        <a href="grades.html">📝 Grades</a>
+        <a href="calendar.html">📅 Calendar</a>
+        <a href="courses.html">📚 Courses</a>
+        <a href="schedules.html">⏰ View Schedules</a>
+        <a href="announcements.html">📢 Announcements</a>
+    </div>
+
+    <div>
+        <button class="toggle-mode" onclick="toggleMode()">🌙 / ☀ Mode</button>
+        <button class="btn-logout" onclick="logout()">Logout</button>
+    </div>
+</div>
+
+<div class="content">
+<header>📅 Weekly Class Schedule</header>
+
+<table>
+    <tr>
+        <th>Day</th>
+        <th>Subject</th>
+        <th>Time</th>
+        <th>Room</th>
+        <th>Instructor</th>
+    </tr>
+
+    <tr>
+        <td>Monday</td>
+        <td>SAM10</td>
+        <td>8:00 AM - 10:00 AM</td>
+        <td>EA 603</td>
+        <td>Reiniel Mallari</td>
+    </tr>
+
+    <tr>
+        <td>Tuesday</td>
+        <td>PDC05</td>
+        <td>1:00 PM - 2:30 PM</td>
+        <td>EA 611</td>
+        <td>Adriane Brent Castro</td>
+    </tr>
+
+    <tr>
+        <td>Wednesday</td>
+        <td>Cisco Networking</td>
+        <td>2:30 PM - 4:30 PM</td>
+        <td>EA 612</td>
+        <td>Benedict Guarin</td>
+    </tr>
+
+    <tr>
+        <td>Thursday</td>
+        <td>PDC04</td>
+        <td>4:30 PM - 6:00 PM</td>
+        <td>EA 612</td>
+        <td>Melissa Pantig</td>
+    </tr>
+
+    <tr>
+        <td>Friday</td>
+        <td>ITE02</td>
+        <td>6:30 PM - 8:00 PM</td>
+        <td>EA 610</td>
+        <td>Ray Nicolas</td>
+    </tr>
+</table>
+
+</div>
+
+<script>
+// Load global theme
+document.addEventListener("DOMContentLoaded", () => {
+    let savedMode = localStorage.getItem("theme") || "dark";
+    document.body.classList.add(savedMode);
+});
+
+// Toggle dark/light mode
+function toggleMode() {
+    if (document.body.classList.contains("dark")) {
+        document.body.classList.replace("dark", "light");
+        localStorage.setItem("theme", "light");
+    } else {
+        document.body.classList.replace("light", "dark");
+        localStorage.setItem("theme", "dark");
+    }
+}
+
+function logout() {
+    window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>

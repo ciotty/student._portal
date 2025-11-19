@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Profile</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url("http://getwallpapers.com/wallpaper/full/a/f/6/287119.jpg")
+            no-repeat center center/cover;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            transition: 0.3s;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .sidebar {
+            width: 230px;
+            background: rgba(179, 0, 0, 0.95);
+            height: 100vh;
+            padding-top: 20px;
+            position: fixed;
+            box-shadow: 3px 0 10px #000;
+            backdrop-filter: blur(5px);
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 15px;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+
+        .sidebar a:hover {
+            background: #800000;
+        }
+
+        /* MAIN CONTENT */
+        .content {
+            margin-left: 250px;
+            padding: 30px;
+            width: 100%;
+        }
+
+        header {
+            background: #b30000;
+            padding: 20px;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px #000;
+        }
+
+        .profile-box {
+            background: rgba(0,0,0,0.7);
+            padding: 30px;
+            border-radius: 12px;
+            width: 500px;
+            margin: 40px auto;
+            box-shadow: 0 0 15px #700000;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .profile-box h2 {
+            color: #ff4d4d;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .input-label {
+            font-weight: bold;
+            color: #ff4d4d;
+            margin-top: 10px;
+            display: block;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 6px;
+            border: none;
+            outline: none;
+        }
+
+        .save-btn {
+            width: 100%;
+            padding: 12px;
+            background: #b30000;
+            border: none;
+            margin-top: 20px;
+            border-radius: 8px;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .save-btn:hover {
+            background: #800000;
+        }
+
+        /* LIGHT MODE */
+        body.light {
+            background: #e6e6e6;
+            color: black;
+        }
+
+        body.light .profile-box {
+            background: white;
+            color: black;
+            box-shadow: 0 0 15px gray;
+        }
+
+        body.light header {
+            background: #ff3333;
+        }
+
+        body.light .sidebar {
+            background: #d60000;
+        }
+
+        body.light .label {
+            color: #cc0000;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+        body.dark {
+    background: #121212 !important;
+    color: white !important;
+}
+
+body.light {
+    background: #f2f2f2 !important;
+    color: black !important;
+}
+
+    </style>
+</head>
+
+<body>
+
+<div class="sidebar">
+    <h2>CCS Portal</h2>
+    <a onclick="goDashboard()">🏠 Dashboard</a>
+    <a onclick="goProfile()">👤 Profile</a>
+    <a onclick="toggleMode()">🌓 Dark/Light Mode</a>
+    <a onclick="logout()">🚪 Logout</a>
+</div>
+
+<div class="content">
+
+<header>Student Profile</header>
+
+<div class="profile-box">
+    <h2>👤 Edit Your Information</h2>
+
+    <label class="input-label">Full Name</label>
+    <input type="text" value="Patricia Isheen">
+
+    <label class="input-label">Student ID</label>
+    <input type="text" value="22-1503-938">
+
+    <label class="input-label">Course</label>
+    <input type="text" value="BS Information Technology">
+
+    <label class="input-label">Major</label>
+    <input type="text" value="Infrastructure & Networking">
+
+    <label class="input-label">Year Level</label>
+    <input type="text" value="4th Year">
+
+    <label class="input-label">Contact Number</label>
+    <input type="text" value="0907-160-8492">
+
+    <label class="input-label">Email</label>
+    <input type="email" value="santosgonzales@student.auf.edu.ph">
+
+    <button class="save-btn" onclick="saveProfile()">Save Profile</button>
+</div>
+
+</div>
+
+<script>
+function logout() {
+    window.location.href = "index.html";
+}
+
+function goProfile() {
+    window.location.href = "profile.html";
+}
+
+function goDashboard() {
+    window.location.href = "dashboard.html";
+}
+
+function toggleMode() {
+    document.body.classList.toggle("light");
+}
+
+function saveProfile() {
+    alert("Your profile has been updated successfully!");
+}
+</script>
+
+</body>
+</html>

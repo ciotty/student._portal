@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            font-family: Arial, sans-serif;
+            animation: fadeIn 2s ease-in-out;
+
+            background: url("https://static.vecteezy.com/system/resources/previews/000/544/300/original/vector-red-technology-circle-and-computer-science-abstract-background-business-and-connection-futuristic-and-industry-4-0-concept-internet-cyber-and-network-theme.jpg") 
+            no-repeat center center/cover;
+        }
+
+        h1 {
+            font-size: 40px;
+            text-shadow: 2px 2px 5px #000;
+            animation: fadeIn 2.5s ease-in-out;
+        }
+
+        p {
+            font-size: 20px;
+            text-shadow: 2px 2px 5px #000;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        .btn {
+            margin-top: 20px;
+            padding: 12px 25px;
+            font-size: 16px;
+            background: #b30000;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+            animation: fadeIn 3.5s ease-in-out;
+        }
+
+        .btn:hover {
+            background: #800000;
+            transform: scale(1.05);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+        body.dark {
+    background: #121212 !important;
+    color: white !important;
+}
+
+body.light {
+    background: #f2f2f2 !important;
+    color: black !important;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Welcome CCS Students!</h1>
+    <p>You are now logged in.</p>
+
+    <button class="btn" onclick="goDashboard()">Go to Dashboard</button>
+
+    <script>
+        function goDashboard() {
+            window.location.href = "dashboard.html";
+        }
+    </script>
+
+</body>
+</html>

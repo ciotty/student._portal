@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Courses</title>
+    <style>
+        body { margin: 0; font-family: Arial; transition: 0.3s; }
+
+        body.dark { background:#121212 !important; color:white !important; }
+        body.light { background:#f2f2f2 !important; color:black !important; }
+
+        .sidebar {
+            width:230px; height:100vh; background:#b30000;
+            position:fixed; top:0; left:0; color:white;
+            display:flex; flex-direction:column; justify-content:space-between;
+            padding-top:20px;
+        }
+        .sidebar a {
+            display:block; padding:15px; font-size:18px; color:white;
+            text-decoration:none; transition:0.3s;
+        }
+        .sidebar a:hover { background:#800000; }
+
+        .content { margin-left:250px; padding:30px; }
+
+        .box {
+            background:#1a1a1a; padding:20px; border-radius:10px;
+            box-shadow:0 0 8px #700000; max-width:600px;
+        }
+        body.light .box { background:white; box-shadow:0 0 10px #ccc; }
+
+        h2 { color:#ff4d4d; }
+        ul { padding-left:20px; font-size:18px; }
+
+        .toggle-mode, .btn-logout {
+            width:80%; margin:10px auto; padding:12px;
+            background:black; border:none; border-radius:6px;
+            color:white; cursor:pointer;
+        }
+        .btn-logout { background:#800000; }
+        .btn-logout:hover { background:black; }
+        body.light .toggle-mode { background:#333; }
+    </style>
+</head>
+
+<body>
+
+<div class="sidebar">
+    <div>
+        <h2 style="text-align:center;">CCS Panel</h2>
+        <a href="dashboard.html">🏠 Dashboard</a>
+        <a href="profile.html">👤 Profile</a>
+        <a href="grades.html">📝 Grades</a>
+        <a href="calendar.html">📅 Calendar</a>
+        <a href="courses.html">📚 Courses</a>
+        <a href="schedules.html">⏰ View Schedules</a>
+        <a href="announcements.html">📢 Announcements</a>
+    </div>
+
+    <div>
+        <button class="toggle-mode" onclick="toggleMode()">🌙 / ☀ Mode</button>
+        <button class="btn-logout" onclick="logout()">Logout</button>
+    </div>
+</div>
+
+<div class="content">
+    <h1>📚 Courses</h1>
+
+    <div class="box">
+        <h2>Enrolled Subjects</h2>
+        <ul>
+            <li>Capstone</li>
+            <li>Professional Domain Course 5</li>
+            <li>Professional Domain Course 6</li>
+            <li>Professional Elective 4</li>
+            <li>Systems Administration & Maintenance</li>
+        </ul>
+    </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    let savedMode = localStorage.getItem("theme") || "dark";
+    document.body.classList.add(savedMode);
+});
+
+function toggleMode() {
+    if (document.body.classList.contains("dark")) {
+        document.body.classList.replace("dark", "light");
+        localStorage.setItem("theme", "light");
+    } else {
+        document.body.classList.replace("light", "dark");
+        localStorage.setItem("theme", "dark");
+    }
+}
+
+function logout() { window.location.href = "index.html"; }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            transition: 0.3s;
+        }
+
+        /* GLOBAL THEME SYSTEM */
+        body.dark {
+            background: #121212 !important;
+            color: white !important;
+        }
+
+        body.light {
+            background: #f2f2f2 !important;
+            color: black !important;
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            width: 230px;
+            height: 100vh;
+            background: #b30000;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 20px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 15px;
+            font-size: 18px;
+            text-decoration: none;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background: #800000;
+        }
+
+        .content {
+            margin-left: 250px;
+            padding: 30px;
+        }
+
+        header {
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* CARDS */
+        .card {
+            background: #1a1a1a;
+            padding: 25px;
+            width: 260px;
+            display: inline-block;
+            margin: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 8px #700000;
+            transition: 0.3s;
+        }
+
+        body.light .card {
+            background: white;
+            box-shadow: 0 0 10px #ccc;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-logout,
+        .toggle-mode,
+        .btn-assignment {
+            padding: 12px 20px;
+            background: #800000;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 80%;
+            align-self: center;
+            margin: 10px;
+        }
+
+        .btn-logout:hover,
+        .btn-assignment:hover {
+            background: #000000;
+        }
+
+        .toggle-mode {
+            background: black;
+        }
+
+        body.light .toggle-mode {
+            background: #333;
+        }
+
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            width: 350px;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .modal-content input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .close-btn {
+            background: red;
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <div class="top-section">
+        <h2 style="text-align:center;">CCS Panel</h2>
+        <div class="menu-links">
+            <a href="dashboard.html">🏠 Dashboard</a>
+            <a href="profile.html">👤 Profile</a>
+            <a href="grades.html">📝 Grades</a>
+            <a href="calendar.html">📅 Calendar</a>
+            <a href="courses.html">📚 Courses</a>
+            <a href="schedules.html">⏰ View Schedules</a>
+            <a href="announcements.html">📢 Announcements</a>
+        </div>
+    </div>
+
+    <div class="bottom-section">
+        <button class="toggle-mode" onclick="toggleMode()">🌙 / ☀ Mode</button>
+        <button class="btn-logout" onclick="logout()">Logout</button>
+    </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="content">
+<header>Welcome CCS Student!</header>
+
+</div>
+
+<div class="card">
+    <h3>👤 Profile</h3>
+    <p>Personal Information</p>
+</div>
+
+<div class="card">
+    <h3>📢 Announcements</h3>
+    <p>View latest CCS updates.</p>
+</div>
+
+<div class="card">
+    <h3>📆 View Schedules</h3>
+    <p>See your class schedules.</p>
+</div>
+
+<div class="card">
+    <h3>🎓 Courses</h3>
+    <p>Personal Information</p>
+</div>
+
+<div class="card">
+    <h3>📋 Calendar Activities</h3>
+    <p>View your Task</p>
+</div>
+
+
+
+</div>
+
+<!-- SUBMIT ASSIGNMENT MODAL -->
+<div class="modal" id="assignmentModal">
+    <div class="modal-content">
+        <h3>Submit Assignment</h3>
+        <input type="file">
+        <button class="close-btn" onclick="closeModal()">Close</button>
+    </div>
+</div>
+
+<!-- GLOBAL THEME SCRIPT -->
+<script>
+// Load theme when page opens
+document.addEventListener("DOMContentLoaded", function () {
+    let savedMode = localStorage.getItem("theme");
+    if (!savedMode) {
+        savedMode = "dark";
+        localStorage.setItem("theme", "dark");
+    }
+    document.body.classList.add(savedMode);
+});
+
+// Toggle Dark/Light mode
+function toggleMode() {
+    if (document.body.classList.contains("dark")) {
+        document.body.classList.replace("dark", "light");
+        localStorage.setItem("theme", "light");
+    } else {
+        document.body.classList.replace("light", "dark");
+        localStorage.setItem("theme", "dark");
+    }
+}
+
+function logout() {
+    window.location.href = "index.html";
+}
+
+function openModal() {
+    document.getElementById("assignmentModal").style.display = "flex";
+}
+
+function closeModal() {
+    document.getElementById("assignmentModal").style.display = "none";
+}
+</script>
+
+</body>
+</html>

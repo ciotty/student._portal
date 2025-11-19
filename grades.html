@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grades</title>
+    <style>
+        body { font-family: Arial; margin: 0; background: #121212; color: white; }
+        .sidebar { width: 230px; height: 100vh; background: #b30000; position: fixed; padding-top: 20px; }
+        .sidebar a { display: block; padding: 15px; color: white; text-decoration:none; }
+        .sidebar a:hover { background: #800000; }
+        .content { margin-left: 250px; padding: 40px; }
+        table { width: 70%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid gray; padding: 12px; text-align: center; }
+        th { background: #b30000; }
+        body.dark {
+    background: #121212 !important;
+    color: white !important;
+}
+
+body.light {
+    background: #f2f2f2 !important;
+    color: black !important;
+}
+
+    </style>
+</head>
+
+<body>
+
+<div class="sidebar">
+    <a href="dashboard.html">🏠 Dashboard</a>
+    <a href="profile.html">👤 Profile</a>
+    <a href="grades.html">📝 Grades</a>
+    <a href="calendar.html">📅 Calendar</a>
+</div>
+
+<div class="content">
+    <h1>Grades</h1>
+
+    <table>
+        <tr>
+            <th>Subject</th>
+            <th>Midterm</th>
+            <th>Final</th>
+            <th>Grade</th>
+        </tr>
+        <tr>
+            <td>Casptone</td>
+            <td>90</td>
+            <td>93</td>
+            <td>Passed</td>
+        </tr>
+        <tr>
+            <td>SAM10</td>
+            <td>90</td>
+            <td>90</td>
+            <td>Passed</td>
+        </tr>
+        <tr>
+            <td>PDC50</td>
+            <td>80</td>
+            <td>87</td>
+            <td>Passed</td>
+        </tr>
+        <tr>
+            <td>PDC60</td>
+            <td>85</td>
+            <td>87</td>
+            <td>Passed</td>
+        </tr>
+        <tr>
+            <td>ITE40</td>
+            <td>89</td>
+            <td>90</td>
+            <td>Passed</td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>
